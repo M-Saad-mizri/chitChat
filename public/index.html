@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>
+      Chat App <span style="font-size: 12px; color: black">By M Saad</span>
+    </h1>
+    <ul id="messages"></ul>
+
+    <div id="username-box">
+      <input
+        id="username-input"
+        autocomplete="off"
+        placeholder="Enter your name"
+      />
+    </div>
+
+    <div id="chat-box">
+      <input
+        id="message-input"
+        autocomplete="off"
+        placeholder="Say something..."
+      />
+      <button id="send-btn">Send</button>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="frontCode.js"></script>
+  </body>
+</html>
