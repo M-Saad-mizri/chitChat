@@ -7,10 +7,22 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>
-      Chat App <span style="font-size: 12px; color: black">By M Saad</span>
-    </h1>
-    <ul id="messages"></ul>
+    <h1>Chit-Chat</h1>
+    <hr />
+    <!-- Button to toggle the user panel -->
+    <button id="toggle-button">></button>
+
+    <!-- Sliding user panel -->
+    <div id="user-panel">
+      <span>Connected Users</span>
+      <span id="total-users"></span>
+      <ol id="user-list"></ol>
+    </div>
+
+    <!-- Main content area -->
+    <div id="main-content">
+      <ul id="messages"></ul>
+    </div>
 
     <div id="username-box">
       <input
@@ -26,10 +38,22 @@
         autocomplete="off"
         placeholder="Say something..."
       />
-      <button id="send-btn">Send</button>
+      <button id="send-btn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="24"
+          height="27"
+          fill="#189A2E"
+        >
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+        </svg>
+      </button>
     </div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="frontCode.js"></script>
   </body>
 </html>
+
+<!-- backpoint -->

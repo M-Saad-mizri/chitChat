@@ -1,42 +1,119 @@
+/* Global Styles */
 body {
   font-family: "Arial", sans-serif;
   margin: 0;
   padding: 0;
   background-color: #e5ddd5; /* Light background color */
 }
+/* The sliding panel styles */
+#user-panel {
+  position: fixed;
+  left: -280px; /* Initially hidden */
+  top: 0;
+  height: 100%;
+  width: 250px;
+  background-color: #f1f1f1;
+  padding: 15px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease-in-out;
+  z-index: 1000;
+  border-radius: 5px;
+}
+
+#user-panel.open {
+  left: 0;
+}
+
+#user-panel span {
+  margin-left: 12px;
+  font-weight: 600;
+}
+
+/* Button to toggle the panel */
+#toggle-button {
+  width: 25px;
+  height: 25px;
+  position: fixed;
+  left: 0;
+  top: 10px;
+  background-color: #797878;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  z-index: 1100;
+  border-radius: 50%;
+}
+#user-list {
+  padding: 0;
+  max-height: calc(
+    100% - 50px
+  ); /* Adjust height, leaving space for title and padding */
+  overflow-y: auto; /* Enable vertical scrolling */
+  margin: 0;
+}
+#main-content {
+  flex: 1;
+  padding: 10px;
+}
+#user-list li {
+  list-style-type: decimal;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#user-list li:hover {
+  background-color: #ddd;
+}
 h1 {
   text-align: center;
   color: #25d366; /* WhatsApp green color */
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: -5px;
 }
+
 #messages {
   list-style-type: none;
   margin: 0;
-  padding: 10px;
-  max-height: 70vh;
+  padding: 5px;
+  max-height: 75vh;
   overflow-y: auto;
+  overflow-x: hidden;
 }
+
 #messages li {
   padding: 10px 15px;
   margin-bottom: 10px;
   border-radius: 20px;
   clear: both;
   width: fit-content;
-  max-width: 70%;
+  max-width: 85%;
+  word-wrap: break-word; /* Prevents long words from breaking the layout */
 }
+
 .sent {
   background-color: #dcf8c6; /* Light green for sent messages */
-  margin-left: auto; /* Align to right for sent messages */
+  margin-left: auto;
 }
+
 .received {
   background-color: #ffffff; /* White for received messages */
-  margin-right: auto; /* Align to left for received messages */
+  margin-right: auto;
 }
+
 #chat-box {
   display: flex;
   justify-content: space-between;
-  margin: 20px;
+  padding: 10px 15px;
+  background-color: #ffffff;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
+
 #message-input,
 #username-input {
   flex-grow: 1;
@@ -45,20 +122,67 @@ h1 {
   border: 1px solid #ccc;
   border-radius: 20px;
   margin-right: 10px;
+  outline: none;
+  background-color: #f9f9f9;
 }
+
 #send-btn {
-  padding: 10px 20px;
-  background: #25d366; /* WhatsApp green */
-  color: white;
+  background-color: transparent;
   border: none;
-  border-radius: 20px;
+  outline: none;
   cursor: pointer;
-  transition: background 0.3s;
+  padding: 5px 10px;
 }
-#send-btn:hover {
-  background: #128c7e; /* Darker green on hover */
+
+#send-btn svg {
+  fill: #189a2e;
+  width: 24px;
+  height: 24px;
+  transition: fill 0.2s;
 }
+
+#send-btn:hover svg {
+  fill: #128c7e;
+}
+
 #username-box {
-  margin: 20px;
+  margin: 10px;
   text-align: center;
+}
+
+#message-input {
+  width: 80%; /* Adjust input width for mobile */
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 18px;
+    margin-bottom: -3px;
+  }
+
+  #messages li {
+    max-width: 80%;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  #chat-box {
+    padding: 8px 12px;
+  }
+
+  #message-input,
+  #username-input {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  #send-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  #username-box {
+    margin: 10px 0;
+  }
 }
