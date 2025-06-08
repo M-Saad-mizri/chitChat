@@ -6,7 +6,7 @@ const usernameInput = document.getElementById("username-input");
 const sendBtn = document.getElementById("send-btn");
 const username_box = document.getElementById("username-box");
 const userColors = {};
-const messageTone = new Audio("music/gun-gunshot-01.mp3");
+const messageTone = new Audio("music/mixkit-software-interface-start-2574.wav");
 
 let username = "";
 let replyTo = null;
